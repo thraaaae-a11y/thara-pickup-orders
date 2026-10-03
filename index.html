@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#6d172a" />
+    <title>THRA — Pickup orders</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="THARA home"><img src="thara-logo-white.png" alt="THARA" /></a>
+        <nav><a href="#menu">Menu</a><a href="#story">Our ritual</a></nav>
+        <button class="cart-pill" id="openCart" aria-label="Open cart">Bag <span id="cartCount">0</span></button>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="hero-statement">Thoughtfully chosen,<br />carefully crafted.</p>
+          </div>
+        </section>
+
+        <section class="menu-section" id="menu">
+          <div class="section-heading"><div><p class="eyebrow">The counter</p><h2>Today’s little pleasures.</h2></div><button id="editMenu" class="quiet-button">Edit menu</button></div>
+          <div class="filters" role="tablist"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="milkbase">Milk Base</button><button class="filter" data-filter="brew">Brew</button><button class="filter" data-filter="others">Others</button><button class="filter" data-filter="desserts">Dessert</button></div>
+          <div class="product-grid" id="productGrid"></div>
+        </section>
+
+        <section class="story" id="story"><div class="story-mark">T</div><div><p class="eyebrow">THRA, in Arabic: abundance</p><h2>Made to brighten your everyday.</h2><p>We believe a good drink and an unhurried bite can make a moment feel abundant. Place your order, choose a time, and we’ll have it waiting for you.</p></div></section>
+      </main>
+
+      <footer><span>THRA • PICKUP KITCHEN</span><span>Made with intention</span></footer>
+    </div>
+
+    <aside class="drawer" id="cartDrawer" aria-label="Your bag" aria-hidden="true">
+      <div class="drawer-head"><div><p class="eyebrow">Your order</p><h2>Good choices.</h2></div><button class="icon-button close-drawer" aria-label="Close">×</button></div>
+      <div class="cart-items" id="cartItems"></div>
+      <div class="cart-empty" id="cartEmpty">Your bag is waiting for something lovely.</div>
+      <div class="cart-summary"><div><span>Subtotal</span><strong id="subtotal">AED 0</strong></div><small>Taxes calculated at checkout.</small><button class="checkout-button" id="startCheckout" disabled>Continue to checkout</button></div>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <section class="modal" id="checkoutModal" aria-hidden="true"><div class="modal-card checkout-card"><button class="icon-button modal-close" aria-label="Close">×</button><div id="checkoutStep"></div></div></section>
+    <section class="modal" id="editorModal" aria-hidden="true"><div class="modal-card editor-card"><button class="icon-button modal-close" aria-label="Close">×</button><div class="editor-top"><p class="eyebrow">Store controls</p><h2>Edit today’s menu</h2><p>Changes save only in this browser, so you can update names, prices and availability anytime.</p></div><div id="editorList"></div><button class="add-product" id="addProduct">+ Add a product</button><div class="editor-actions"><button class="quiet-button" id="resetMenu">Reset sample menu</button><button class="checkout-button" id="saveMenu">Save changes</button></div></div></section>
+
+    <template id="productTemplate"><article class="product-card"><div class="product-content"><div class="product-topline"><p class="product-category"></p><span class="sold-out">Sold out</span></div><h3></h3><p class="description"></p><div class="product-bottom"><strong class="price"></strong><button class="add-button">Add <span>+</span></button></div></div></article></template>
+    <script src="app.js"></script>
+  </body>
+</html>
